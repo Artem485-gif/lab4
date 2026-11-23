@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Навчальна сторінка адміністрування каталогу фільмів.">
+    <title>Адміністрування | FILM CATALOG</title>
+</head>
+<body>
+    <header>
+        <h1>Адміністрування каталогу фільмів</h1>
+        <p>Ця сторінка є навчальною імітацією адміністративного інтерфейсу. Вона демонструє керування елементами каталогу без реального збереження даних на сервері.</p>
+        <nav aria-label="Основна навігація">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про проєкт</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="catalog-heading">
+            <h2 id="catalog-heading">Елементи каталогу</h2>
+
+            <table>
+                <caption>Список фільмів і серіалів каталогу</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Назва</th>
+                        <th scope="col">Категорія</th>
+                        <th scope="col">Тривалість, хв</th>
+                        <th scope="col">Наявність</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Аватар 2: Шлях води</td>
+                        <td>Фільм</td>
+                        <td>192</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-1">Редагувати Аватар 2: Шлях води</a></td>
+                    </tr>
+                    <tr>
+                        <td>Мис страху</td>
+                        <td>Фільм</td>
+                        <td>128</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-2">Редагувати Мис страху</a></td>
+                    </tr>
+                    <tr>
+                        <td>Таємниця бункера</td>
+                        <td>Серіал</td>
+                        <td>50</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-3">Редагувати Таємниця бункера</a></td>
+                    </tr>
+                    <tr>
+                        <td>Матриця</td>
+                        <td>Фільм</td>
+                        <td>136</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-4">Редагувати Матриця</a></td>
+                    </tr>
+                    <tr>
+                        <td>Гладіатор</td>
+                        <td>Фільм</td>
+                        <td>155</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-5">Редагувати Гладіатор</a></td>
+                    </tr>
+                    <tr>
+                        <td>Білі не вміють стрибати</td>
+                        <td>Фільм</td>
+                        <td>117</td>
+                        <td>Так</td>
+                        <td><a href="admin-edit.html?id=movie-6">Редагувати Білі не вміють стрибати</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="add-heading">
+            <h2 id="add-heading">Додавання нового фільму</h2>
+            <p>Заповніть поля форми для додавання нового елемента до каталогу.</p>
+
+            <form id="item-form" action="admin.html" method="get" autocomplete="on">
+
+                <fieldset>
+                    <legend>Основні дані</legend>
+
+                    <p>
+                        <label for="item-code">Код фільму:</label>
+                        <input
+                            type="text"
+                            id="item-code"
+                            name="code"
+                            required
+                            pattern="MOV-[0-9]{3}"
+                            aria-describedby="code-hint">
+                    </p>
+                    <p id="code-hint">Формат коду: MOV-001. Після MOV- потрібно вказати три цифри.</p>
+
+                    <p>
+                        <label for="item-title">Назва фільму або серіалу:</label>
+                        <input
+                            type="text"
+                            id="item-title"
+                            name="title"
+                            required
+                            minlength="2"
+                            maxlength="100"
+                            autocomplete="off">
+                    </p>
+
+                    <p>
+                        <label for="item-image">Посилання на зображення:</label>
+                        <input
+                            type="url"
+                            id="item-image"
+                            name="imageUrl"
+                            required
+                            aria-describedby="image-hint">
+                    </p>
+                    <p id="image-hint">Введіть повну вебадресу зображення, наприклад https://example.com/poster.jpg.</p>
+
+                    <p>
+                        <label for="item-category">Категорія:</label>
+                        <select id="item-category" name="category" required>
+                            <option value="">Оберіть категорію</option>
+                            <option value="Фільм">Фільм</option>
+                            <option value="Серіал">Серіал</option>
+                            <option value="Мультфільм">Мультфільм</option>
+                            <option value="Документальний фільм">Документальний фільм</option>
+                            <option value="Аніме">Аніме</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="item-duration">Тривалість у хвилинах:</label>
+                        <input
+                            type="number"
+                            id="item-duration"
+                            name="duration"
+                            min="1"
+                            max="500"
+                            step="1"
+                            required>
+                    </p>
+
+                    <p>
+                        <label for="item-year">Рік виходу:</label>
+                        <input
+                            type="number"
+                            id="item-year"
+                            name="releaseYear"
+                            min="1900"
+                            max="2026"
+                            step="1"
+                            required>
+                    </p>
+
+                    <p>
+                        <label for="item-date">Дата додавання:</label>
+                        <input
+                            type="date"
+                            id="item-date"
+                            name="addedAt"
+                            min="1900-01-01"
+                            max="2026-11-23"
+                            required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Опис і наявність</legend>
+
+                    <p>
+                        <label for="item-description">Опис фільму:</label>
+                        <textarea
+                            id="item-description"
+                            name="description"
+                            rows="5"
+                            minlength="10"
+                            maxlength="1000"
+                            required
+                            aria-describedby="description-hint"></textarea>
+                    </p>
+                    <p id="description-hint">Максимальна довжина опису — 1000 символів.</p>
+
+                    <p>
+                        <label for="item-stock">
+                            <input
+                                type="checkbox"
+                                id="item-stock"
+                                name="inStock"
+                                value="true"
+                                checked>
+                            Є в наявності
+                        </label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Додати</button>
+                    <button type="reset">Очистити</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>FILM CATALOG — навчальний проєкт</p>
+        <p><a href="index.html">Повернутися до каталогу</a></p>
+        <p><a href="admin.html">Адміністрування</a></p>
+    </footer>
+</body>
+</html>
+
+
+

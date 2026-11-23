@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Редагування фільмів і серіалів каталогу.">
+    <title>Редагування | FILM CATALOG</title>
+</head>
+<body>
+    <header>
+        <h1>Редагування елемента каталогу</h1>
+        <nav aria-label="Основна навігація">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="admin.html">Адміністрування</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="edit-heading">
+            <h2 id="edit-heading">Дані фільму або серіалу</h2>
+
+            <form action="admin.html" method="get" autocomplete="on">
+                <input type="hidden" id="item-id" name="id">
+
+                <fieldset>
+                    <legend>Основні дані</legend>
+
+                    <p>
+                        <label for="item-code">Код:</label>
+                        <input type="text" id="item-code" name="code"
+                            required pattern="MOV-[0-9]{3}">
+                    </p>
+
+                    <p>
+                        <label for="item-title">Назва:</label>
+                        <input type="text" id="item-title" name="title"
+                            required minlength="2" maxlength="100">
+                    </p>
+
+                    <p>
+                        <label for="item-image">Шлях до зображення:</label>
+                        <input type="url" id="item-image" name="imageUrl" required>
+                    </p>
+
+                    <p>
+                        <label for="item-category">Категорія:</label>
+                        <select id="item-category" name="category" required>
+                            <option value="" selected disabled>Оберіть категорію</option>
+                            <option value="Фільм">Фільм</option>
+                            <option value="Серіал">Серіал</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="item-genre">Жанр:</label>
+                        <input type="text" id="item-genre" name="genre" required minlength="2" maxlength="50">
+                    </p>
+
+                    <p>
+                        <label for="item-duration">Тривалість у хвилинах:</label>
+                        <input type="number" id="item-duration" name="duration"
+                            min="1" max="500" step="1" required>
+                    </p>
+
+                    <p>
+                        <label for="item-year">Рік виходу:</label>
+                        <input type="number" id="item-year" name="releaseYear"
+                            min="1900" max="2026" step="1" required>
+                    </p>
+
+                    <p>
+                        <label for="item-date">Дата додавання:</label>
+                        <input type="date" id="item-date" name="addedAt"
+                            min="1900-01-01" max="2026-12-31" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Опис і наявність</legend>
+
+                    <p>
+                        <label for="item-description">Опис:</label>
+                        <textarea id="item-description" name="description"
+                            rows="5" minlength="10" maxlength="1000" required></textarea>
+                    </p>
+
+                    <p>
+                        <label for="item-stock">
+                            <input type="checkbox" id="item-stock"
+                                name="inStock" value="true">
+                            Є в наявності
+                        </label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Зберегти</button>
+                    <button type="reset">Скинути зміни</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p><a href="admin.html">Повернутися до адміністрування</a></p>
+        <p><a href="index.html">Повернутися до каталогу</a></p>
+    </footer>
+
+    <script>
+        const movies = {
+            "movie-1": {
+                code: "MOV-001",
+                title: "Аватар 2: Шлях води",
+                image: "images/1.jpg",
+                category: "Фільм",
+                genre: "Фантастика",
+                duration: 192,
+                year: 2022,
+                description: "Продовження видовищної науково-фантастичної епопеї Джеймса Кемерона. Землянин Джейк Саллі шукає своє місце серед інопланетного народу На'ві, який постраждав від людей. Йому належить захищати свій новий дім та сім'ю від ворожого вторгнення.",
+                stock: true
+            },
+            "movie-2": {
+                code: "MOV-002",
+                title: "Мис страху",
+                image: "images/2.jpg",
+                category: "Серіал",
+                genre: "Трилер",
+                duration: 148,
+                year: 2026,
+                description: "Щасливе подружжя стикається зі зростаючою загрозою, коли Макс Кейді виходить із в'язниці та прагне помсти. Серіал досліджує теми помсти, виживання та крихкості людських стосунків.",
+                stock: true
+            },
+            "movie-3": {
+                code: "MOV-003",
+                title: "Таємниця бункера",
+                image: "images/3.jpg",
+                category: "Серіал",
+                genre: "Драма",
+                duration: 59,
+                year: 2022,
+                description: "У постапокаліптичному світі люди знайшли притулок у гігантському підземному бункері. Мешканці прагнуть розкрити правду про його походження та справжній стан зовнішнього світу.",
+                stock: true
+            },
+            "movie-4": {
+                code: "MOV-004",
+                title: "Матриця",
+                image: "images/4.jpg",
+                category: "Фільм",
+                genre: "Фантастика",
+                duration: 136,
+                year: 1999,
+                description: "Томас Андерсон живе звичним життям, але дізнається, що весь світ є матрицею. Йому належить зробити вибір і долучитися до боротьби між машинами та людьми.",
+                stock: true
+            },
+            "movie-5": {
+                code: "MOV-005",
+                title: "Гладіатор",
+                image: "images/5.jpg",
+                category: "Фільм",
+                genre: "Бойовик",
+                duration: 155,
+                year: 2000,
+                description: "Римський генерал Максимус після зради стає гладіатором. Він здобуває визнання народу та готується до вирішальної битви.",
+                stock: true
+            },
+            "movie-6": {
+                code: "MOV-006",
+                title: "Білі не вміють стрибати",
+                image: "images/6.jpg",
+                category: "Фільм",
+                genre: "Комедія",
+                duration: 116,
+                year: 1992,
+                description: "Підприємливий Біллі любить баскетбол і заробляє на ставках. Згодом він знайомиться зі спортсменом Сіднеєм, і між ними зав'язується протистояння на баскетбольному майданчику.",
+                stock: false
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        const movie = movies[id];
+
+        if (!movie) {
+            document.querySelector("main").innerHTML =
+                '<p>Елемент каталогу не знайдено. <a href="admin.html">Повернутися назад</a></p>';
+        } else {
+            document.getElementById("item-id").value = id;
+            document.getElementById("item-code").value = movie.code;
+            document.getElementById("item-title").value = movie.title;
+            document.getElementById("item-image").value = movie.image;
+            document.getElementById("item-category").value = movie.category;
+            document.getElementById("item-genre").value = movie.genre;
+            document.getElementById("item-duration").value = movie.duration;
+            document.getElementById("item-year").value = movie.year;
+            document.getElementById("item-date").value = "2026-11-23";
+            document.getElementById("item-description").value = movie.description;
+            document.getElementById("item-stock").checked = movie.stock;
+
+            document.title = "Редагування: " + movie.title + " | FILM CATALOG";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

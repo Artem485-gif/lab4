@@ -809,3 +809,149 @@ main.site-container address {
     }
 }
 
+
+/* ===== Форма відгуку ===== */
+
+#review {
+    max-width: 760px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.06);
+}
+
+#review h2 {
+    margin: 0 0 25px;
+    padding-bottom: 15px;
+    color: #252525;
+    font-size: 27px;
+    border-bottom: 3px solid #b82525;
+}
+
+#review form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+#review fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 22px;
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    background: #fcfcfc;
+}
+
+#review legend {
+    padding: 0 10px;
+    color: #9f2020;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#review p {
+    margin: 15px 0;
+}
+
+#review label {
+    color: #333333;
+    font-size: 16px;
+}
+
+#review input[type="text"],
+#review textarea {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #252525;
+    font: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#review input[type="text"]:focus,
+#review textarea:focus {
+    outline: none;
+    border-color: #b82525;
+    box-shadow: 0 0 0 3px rgba(184, 37, 37, 0.12);
+}
+
+#review textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+#review input[type="radio"] {
+    width: 17px;
+    height: 17px;
+    margin: 0 6px 0 0;
+    accent-color: #b82525;
+    vertical-align: middle;
+}
+
+#review fieldset:nth-of-type(2) > label {
+    display: inline-flex;
+    align-items: center;
+    margin: 8px 12px 8px 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#review button {
+    padding: 12px 22px;
+    border: 2px solid #b82525;
+    border-radius: 8px;
+    background: #b82525;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#review button:hover {
+    background: #941d1d;
+    border-color: #941d1d;
+    transform: translateY(-1px);
+}
+
+#review button[type="reset"] {
+    background: #ffffff;
+    color: #b82525;
+}
+
+#review button[type="reset"]:hover {
+    background: #fff0f0;
+}
+
+#review button:focus-visible {
+    outline: 3px solid rgba(184, 37, 37, 0.3);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    #review {
+        margin: 25px 10px;
+        padding: 20px 15px;
+    }
+
+    #review fieldset {
+        padding: 15px;
+    }
+
+    #review h2 {
+        font-size: 23px;
+    }
+
+    #review button {
+        width: 100%;
+    }
+}
+

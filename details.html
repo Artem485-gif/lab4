@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -96,7 +96,100 @@
                     </tbody>
                 </table>
             </section>
-        </article>
+        
+            <section id="review" aria-labelledby="review-title">
+                <h2 id="review-title">Залишити відгук</h2>
+
+                <form action="details.html" method="get" autocomplete="on">
+                    <fieldset>
+                        <legend>Ваші дані</legend>
+
+                        <p>
+                            <label for="reviewer-name">Ваше ім'я:</label>
+                            <input type="text" id="reviewer-name" name="name"
+                                autocomplete="name" required minlength="2" maxlength="50">
+                        </p>
+
+                        <p>
+                            <label for="reviewer-email">Електронна пошта:</label>
+                            <input type="email" id="reviewer-email" name="email"
+                                autocomplete="email" required>
+                        </p>
+
+                        <p>
+                            <label for="reviewer-phone">Номер телефону (необов'язково):</label>
+                            <input type="tel" id="reviewer-phone" name="phone"
+                                autocomplete="tel" aria-describedby="phone-hint">
+                            <small id="phone-hint">Наприклад: +380XXXXXXXXX</small>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Оцінка та враження</legend>
+
+                        <p>Оцініть фільм або серіал:</p>
+
+                        <label>
+                            <input type="radio" name="rating" value="1" required>
+                            1 — Дуже погано
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="2">
+                            2 — Погано
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="3">
+                            3 — Задовільно
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="4">
+                            4 — Добре
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="5">
+                            5 — Відмінно
+                        </label>
+
+                        <p>
+                            <label for="watched-with">З ким дивилися?</label>
+                            <input type="text" id="watched-with" name="watchedWith"
+                                list="viewers" placeholder="Оберіть або введіть свій варіант" required>
+
+                            <datalist id="viewers">
+                                <option value="Самостійно">
+                                <option value="З друзями">
+                                <option value="З родиною">
+                                <option value="З батьками">
+                                <option value="З партнером">
+                                <option value="З дітьми">
+                            </datalist>
+                        </p>
+
+                        <p>
+                            <label for="review-text">Ваш відгук:</label>
+                            <textarea id="review-text" name="review" rows="5" cols="50"
+                                minlength="10" maxlength="1000"
+                                placeholder="Напишіть свої враження..." required></textarea>
+                        </p>
+
+                        <p>
+                            <label for="review-agreement">
+                                <input type="checkbox" id="review-agreement"
+                                    name="agreement" value="yes" required>
+                                Погоджуюся з правилами публікації відгуків
+                            </label>
+                        </p>
+                    </fieldset>
+
+                    <button type="submit">Надіслати відгук</button>
+                    <button type="reset">Очистити форму</button>
+                </form>
+            </section>
+</article>
 
         <p><a href="index.html">Повернутися до каталогу</a></p>
     </main>
@@ -235,3 +328,4 @@
     </script>
 </body>
 </html>
+
